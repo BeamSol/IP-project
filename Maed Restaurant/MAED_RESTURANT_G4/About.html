@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Maed!</title>
+    <style>
+        body {
+            background-color: #f8e5d5;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px;
+            text-decoration: none;
+            color: #e1b227;
+            font-size: 20px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: #be9b50;
+        }
+
+        fieldset {
+            width: 60%;
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #e1b227;
+            border-radius: 15px;
+            text-align: justify;
+            background-color: #fffaf0;
+        }
+
+        legend {
+            color: #e1b227;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        img {
+            width: 80%;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            background-color: #e1b227;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #be9b50;
+        }
+    </style>
+</head>
+<body>
+    <a href="ip.html">HOME</a>
+    <fieldset>
+        <legend>About Us</legend>
+        <p>
+            Maed was founded by Solomon and Kidest, who grew up in Addis Ababa, Ethiopia. Kidest's love for Ethiopian cuisine began as a young girl when she would accompany her mother to the vibrant food markets in the streets of Bole, where they would buy fresh vegetables and watch the produce turn into a variety of Ethiopian dishes in her mother’s kitchen. Solomon and Kidest's passion for Ethiopian cuisine led them to open Maed in Bole, where they serve mouth-watering Tibs and Kitfo made with authentic Ethiopian food, herbs, and spices, as well as delicious veggie and meat entrées.
+        </p>
+        <p>
+            Maed is a fine-dining establishment that strives to deliver on the excellence that their customers expect. All entrées are prepared with the finest ingredients that are delicately blended with warm, zesty spices to deliver the full flavor of authentic Ethiopian cuisine to the community.
+        </p>
+        <button id="toggleImage">Toggle Image</button>
+    </fieldset>
+    <img id="restaurantImage" src="./gallary/photo_6051115720835711647_x.jpg" alt="Restaurant Image">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var image = document.getElementById('restaurantImage');
+            var toggleButton = document.getElementById('toggleImage');
+            var imageIndex = 0;
+            var imageSources = [
+                "./gallary/photo_6051115720835711647_x.jpg",
+                "./gallary/photo_6051115720835711644_x.jpg",
+                "./gallary/photo_6051115720835711641_y.jpg",
+                "./gallary/photo_6051115720835711640_y.jpg",
+                "./gallary/photo_6051115720835711638_x.jpg"
+            ];
+
+            toggleButton.addEventListener('click', function () {
+                imageIndex = (imageIndex + 1) % imageSources.length;
+                image.src = imageSources[imageIndex];
+                image.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

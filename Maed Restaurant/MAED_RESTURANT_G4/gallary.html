@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallary Maed</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #333;
+            background-color: #e0e0e0;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #ccc;
+        }
+
+        #gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            width: 300px;
+            margin: 10px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+            border-radius: 8px 8px 0 0;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .gallery-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop id="classical-music">
+        <source src="./Beloved(chosic.com).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <a href="ip.html">Back to HOME</a>
+    
+
+    <div id="gallery-container">
+        <div class="gallery-item">
+            <img src="./gallary/kitfo.jpg" alt="kitfo">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6046612121208340621_x.jpg">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6046612121208340623_y.jpg">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6046612121208340617_y.jpg" alt="">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6046612121208340622_y.jpg">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6046612121208340620_y.jpg">
+        </div>
+        <div class="gallery-item">
+            <video width="300" controls id="video-player">
+                <source src="./gallary/document_6050672282186027236.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6051115720835711644_x.jpg">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6051115720835711641_y.jpg">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6051115720835711640_y.jpg">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6051115720835711638_x.jpg">
+        </div>
+        <div class="gallery-item">
+            <img src="./gallary/photo_6051115720835711672_y.jpg">
+        </div>
+    </div>
+
+    <script>
+        // Pause classical music when the video starts playing
+        document.getElementById('video-player').addEventListener('play', function() {
+            var classicalMusic = document.getElementById('classical-music');
+            if (!classicalMusic.paused) {
+                classicalMusic.pause();
+            }
+        });
+    </script>
+</body>
+</html>

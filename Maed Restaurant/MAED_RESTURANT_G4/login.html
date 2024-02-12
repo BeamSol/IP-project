@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maed Restaurant Payment</title>
+  <link rel="stylesheet" href="login_style.css">
+  <style>
+    body {
+      background-color: black;
+      color: gold;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #payment-form,
+    #payment-methods {
+      background-color: black;
+      color: gold;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    h2 {
+      color: gold;
+    }
+
+    label {
+      color: gold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      background-color: gold;
+      color: black;
+      padding: 10px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    button[type="button"] {
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="button"]:hover {
+      background-color: darkgoldenrod;
+    }
+
+    footer {
+      background-color: black;
+      color: gold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      color: darkgoldenrod;
+    }
+
+    footer img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+  </style>
+  <script src="script_login.js"></script>
+</head>
+
+<body>
+
+  <div id="payment-form" class="payment-form">
+    <a href="./ip.html"><button type="button" id="set-password-btn">Home</button></a>
+    <h2>Login</h2>
+    <form id="login-form">
+      <p><label for="name">Name:</label></p>
+      <p><input type="text" id="name" required pattern="[A-Za-z ]+" title="Name should only contain letters"></p>
+      <p><label for="email">Email:</label></p>
+      <p><input type="email" id="email" required></p>
+      <p><label for="password">Password:</label></p>
+      <p><input type="password" id="password" required pattern=".{8,20}" title="Password must be between 8 and 20 characters"></p>
+      <p><button type="submit" id="login-btn" style="background-color: rgb(235, 216, 111);">Login</button></p>
+    </form>
+  </div>
+
+  <div id="payment-methods" class="payment-methods">
+    <h2>Choose Payment Method</h2>
+    <select id="payment-select" onchange="redirectToSelected()">
+      <option value="https://www.ethiotelecom.et/telebirr/">Telebirr</option>
+      <option value="https://www.combanketh.et/">CBE</option>
+      <option value="https://www.bankofabyssinia.com/">BOA</option>
+    </select>
+    
+    <button type="submit" id="proceed-to-payment-btn" style="background-color: rgb(235, 216, 111);">Proceed to Payment</button>
+  </div>
+
+ 
+  <a   href="https://beudelivery.com/" style="color:black;"> <button type="submit" id="beu-delivery-btn" style="background-color: rgb(235, 216, 111)">BEU Delivery</button></a>
+  <a   href="https://deliveraddis.com/" style="color:black;"> <button type="submit" id="addis-delivery-btn" style="background-color: rgb(235, 216, 111)">Addis Delivery</button></a>
+
+  <script >
+    function redirectToSelected() {
+      var dropdown = document.getElementById("payment-select");
+      var selectedOption = dropdown.options[dropdown.selectedIndex].value;
+      window.location.href = selectedOption;
+    }
+
+    document.getElementById("login-btn").addEventListener("click", function(event) {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    var nameRegex = /^[A-Za-z\s]+$/;
+    var passwordRegex = /^.{8,20}$/;
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name.match(nameRegex)) {
+        alert("Name should only contain letters and not left empty.");
+        event.preventDefault();
+    }
+
+    if (!email.match(emailRegex)) {
+        alert("Invalid email format.");
+        event.preventDefault();
+    }
+
+    if (!password.match(passwordRegex)) {
+        alert("Password must be between 8 and 20 characters.");
+        event.preventDefault();
+    }
+});
+
+  </script>
+</body>
+<footer>
+  <div>
+    <br><br> Bole Skylight Hotel 1st Floor<br><br>Addis Ababa,Ethiopia<br><br>
+    +251-910-002-200 |
+    +251-901-111-222</p><br><br>
+    <a href="ip.html">Home &nbsp;&nbsp;</a>
+    <a href="menu.html">Menu &nbsp;&nbsp;</a>
+    <a href="order.html">Order &nbsp;&nbsp;</a>
+    <a href="reserve.html">Reservation &nbsp;&nbsp;</a>
+    <a href="gallary.html">Gallery &nbsp;&nbsp;</a>
+    <a href="About.html">About &nbsp;&nbsp;</a>
+    <a href="contact.html">Contact &nbsp;&nbsp;</a>
+    <br><br>
+    <a href="https://www.facebook.com/" target="_blank"><img src="./icons/facbook.png" alt="Facebook"></a>
+    <a href="https://www.instagram.com/" target="_blank"><img src="./icons/instagram.png" alt="Instagram"></a>
+    <a href="https://twitter.com/" target="_blank"><img src="./icons/Twitter-Emblem.png" alt="Twitter"></a>
+    <br><br>
+    <span>&copy;Maed Restaurant</span>
+  </div>
+</footer>
+
+</html>

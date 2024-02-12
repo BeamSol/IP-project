@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Now Maed</title>
+    <style>
+      body {
+        background-image: url(./gallary/photo_6046612121208340620_y.jpg);
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      form {
+        width: 50%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      fieldset {
+        border: 2px solid red;
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      legend {
+        color: red;
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: red;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: darkred;
+      }
+
+      a {
+        float: right;
+        text-decoration: none;
+        color: red;
+      }
+
+      a:hover {
+        color: darkred;
+      }
+
+      .selected-items {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+      }
+      .receipt-box {
+        margin-top: 20px;
+        padding: 20px;
+        border: 2px solid red;
+        border-radius: 10px;
+        background-color: #f8f8f8;
+      }
+
+      .payment-button {
+        background-color: green;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .payment-button:hover {
+        background-color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="ip.html" style="color: white">Back to home</a>
+    <form>
+      <fieldset>
+        <legend>Order Now</legend>
+        <label for="firstname">First name:</label>
+        <input type="text" id="firstname" name="firstname" required />
+
+        <label for="lastname">Last name:</label>
+        <input type="text" id="lastname" name="lastname" />
+
+        <label for="starter">Starter:</label>
+        <select id="starter" multiple onchange="updateSelection('starter')">
+          <option>
+            Sanbosa................................................100br
+          </option>
+          <option>
+            Toasted Whole grain bread with Ethiopian sauce Awaze...150br
+          </option>
+          <option>
+            fresh mead salad.......................................330br
+          </option>
+          <option>
+            Telba with enjira......................................250br
+          </option>
+          <option>
+            Suff juice.............................................100br
+          </option>
+          <option>
+            Aja shoreba............................................150br
+          </option>
+        </select>
+        <div id="selected-starter" class="selected-items"></div>
+
+        <label for="vegan">Vegan Corner:</label>
+        <select id="vegan" multiple onchange="updateSelection('vegan')">
+          <option>Shiro ............................250br</option>
+          <option>Gomen ..........................150br</option>
+          <option>Tekel Gomen .........................150br</option>
+          <option>Miser wott...........................200br</option>
+          <option>Kik wott alecha/key..................200br</option>
+          <option>Defen miser..........................200br</option>
+          <option>Suf fitfit ..........................200br</option>
+          <option>Alecha/key firfir ..................185br</option>
+          <option>Denche wott key/Alecha...............190br</option>
+          <option>Duba wott............................250br</option>
+        </select>
+        <div id="selected-vegan" class="selected-items"></div>
+
+        <label for="meat_lovers">Meat Lovers:</label>
+        <select
+          id="meat_lovers"
+          multiple
+          onchange="updateSelection('meat_lovers')"
+        >
+          <option>sega wott ...................300br</option>
+          <option>Alecha sega wott...................300br</option>
+          <option>Kitfo ...................850br</option>
+          <option>Gas light 1kg .................2500br</option>
+          <option>Menchet alecha/key.................450br</option>
+          <option>Kekel sega .................400br</option>
+          <option>Doro Wott half/full..........1700/3500br</option>
+          <option>Doro Aresto half/full........1500/3000br</option>
+          <option>Chekena Tibs .................500br</option>
+          <option>Yebeg Tibs ................5500br</option>
+          <option>Derq Tibs 1kg ................2500br</option>
+        </select>
+        <div id="selected-meat_lovers" class="selected-items"></div>
+
+        <label for="family_corner">Family Corner:</label>
+        <select
+          id="family_corner"
+          multiple
+          onchange="updateSelection('family_corner')"
+        >
+          <option>Beyeaynetu .....................500br</option>
+          <option>Agelegel mulu/gemash ................800/1600br</option>
+          <option>Doro wott mulu/gemash .................1700/3500</option>
+          <option>Doro aresto mulu/gemash.................1500/300</option>
+          <option>Beg aresto mulu/gemash...............3000/5500br</option>
+        </select>
+        <div id="selected-family_corner" class="selected-items"></div>
+
+        <label for="raw_mead">Raw Maed:</label>
+        <select id="raw_mead" multiple onchange="updateSelection('raw_mead')">
+          <option>Tere sega 1kg.............2500br</option>
+          <option>Kermila...................1500br</option>
+          <option>Gored Gore................1000br</option>
+          <option>Kitfo.....................850br</option>
+          <option>Katelo.....................900br</option>
+        </select>
+        <div id="selected-raw_mead" class="selected-items"></div>
+
+        <label for="drinks">Drinks:</label>
+        <select id="drinks" multiple onchange="updateSelection('drinks')">
+          <option>Water............................25br</option>
+          <option>Sprinkled Water..................35br</option>
+          <option>Soft drinks......................35br</option>
+          <option>Berze............................65br</option>
+          <option>Tej.............................295br</option>
+          <option>Tela............................240br</option>
+          <option>Wine glass/bottel...........300/830br</option>
+          <option>Beer.............................45br</option>
+          <option>Cocktail........................250br</option>
+          <option>Whisky glass/bottel.......1000/5500br</option>
+        </select>
+        <div id="selected-drinks" class="selected-items"></div>
+
+        <label for="dessert">Dessert:</label>
+        <select id="dessert" multiple onchange="updateSelection('dessert')">
+          <option>Hambasha...........................250br</option>
+          <option>Ethiopian fruit salad..............125br</option>
+          <option>Honey ice-cream....................187br</option>
+          <option>Baklava.............................55br</option>
+          <option>Mandazi(East African Doughnut)......45br</option>
+        </select>
+        <div id="selected-dessert" class="selected-items"></div>
+
+        <label for="hot_drinks">Hot Drinks:</label>
+        <select
+          id="hot_drinks"
+          multiple
+          onchange="updateSelection('hot_drinks')"
+        >
+          <option>Jebena Buna................20br</option>
+          <option>Tea........................20br</option>
+          <option>Macchiato..................30br</option>
+          <option>Milk.......................25br</option>
+          <option>Espresso...................25br</option>
+        </select>
+        <div id="selected-hot_drinks" class="selected-items"></div>
+
+        <button type="button" onclick="orderNow()">Order now!</button>
+        <button type="button" onclick="displayReceipt()" class="payment-button">
+          Display Receipt
+        </button>
+      </fieldset>
+      <div class="receipt-box" id="receiptBox"></div>
+      <button type="button" onclick="displayReceipt()" class="payment-button">
+        <a href="login.html" style="color: azure">Continue with Payment</a>
+      </button>
+    </form>
+
+    <script>
+      function updateSelection(category) {
+        const selectedElement = document.getElementById(category);
+        const displayBox = document.getElementById(`selected-${category}`);
+        const selectedOptions = Array.from(selectedElement.selectedOptions).map(
+          (option) => option.text
+        );
+
+        displayBox.innerHTML = `<strong>${category}:</strong> ${selectedOptions.join(
+          ", "
+        )}`;
+      }
+
+      function orderNow() {
+        alert("Order placed, please complete payment to submit order");
+      }
+
+      function displayReceipt() {
+        const receiptBox = document.getElementById("receiptBox");
+        const selectedCategories = [
+          "starter",
+          "vegan",
+          "meat_lovers",
+          "drinks",
+          "raw_mead",
+          "hot_drinks",
+          "dessert",
+          "family_corner",
+        ];
+        let totalPrice = 0; // Initialize total price
+
+        let totalItems = [];
+        selectedCategories.forEach((category) => {
+          const selectedElement = document.getElementById(category);
+          const selectedOptions = Array.from(
+            selectedElement.selectedOptions
+          ).map((option) => {
+            const price = parseInt(option.text.match(/\d+/)[0]); // Extract price from option text
+            totalPrice += price; // Add price to total
+            return option.text;
+          });
+          totalItems = totalItems.concat(selectedOptions);
+        });
+
+        receiptBox.innerHTML = `<strong>Total Selected Items:</strong> ${totalItems.join(
+          ", "
+        )}<br><strong>Total Payment:</strong> ${totalPrice}br`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="my2.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+
+    <div id="game">
+      <div id="settings">
+        <div class="difficulty">
+          <p>Difficulty:</p>
+          <select id="difficultySelect" onchange="changeDifficulty()">
+            <option value="easy">Easy</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+
+        <div class="theme">
+          <p>Theme:</p>
+          <select id="themeSelect" onchange="changeTheme()">
+            <option value="default">Default</option>
+            <option value="dark">Dark</option>
+            <option value="light">light</option>
+            <option value="ocean">ocean</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="moves">
+        <div class="moves-p">
+          <h3>Choose Your Move</h3>
+        </div>
+        <div class="moves-img">
+          <div
+            id="rock"
+            class="move rock"
+            onclick="userChoice('rock')"
+            title="Rock"
+          >
+            <img src="images/rock-emoji.png" alt="Rock" />
+          </div>
+
+          <div
+            id="paper"
+            class="move paper"
+            onclick="userChoice('paper')"
+            title="Paper"
+          >
+            <img src="images/paper-emoji.png" alt="Paper" />
+          </div>
+
+          <div
+            id="scissors"
+            class="move scissors"
+            onclick="userChoice('scissors')"
+            title="Scissors"
+          >
+            <img src="images/scissors-emoji.png" alt="Scissors" />
+          </div>
+        </div>
+      </div>
+
+      <div class="playersMove">
+        <h2>You</h2>
+        <img
+          id="userImage"
+          class="hidden"
+          src="images/rock-emoji.png"
+          alt="User's Choice"
+        />
+
+        <div id="noChoiceText" class="hidden">
+          <h2>No Choice</h2>
+        </div>
+      </div>
+
+      <div class="computerMove">
+        <h2>Computer</h2>
+        <img
+          id="computerImage"
+          class="hidden"
+          src="images/rock-emoji.png"
+          alt="Computer's Choice"
+        />
+      </div>
+
+      <div id="game-info">
+        <div id="game-result"></div>
+        <div id="timer">Time Left: <span id="time">10</span> seconds</div>
+      </div>
+      <div id="score">
+        <div class="div-p">
+          <h3>Score</h3>
+          <p class="p1">Wins: <span id="wins">0</span></p>
+          <p class="p2">Losses: <span id="losses">0</span></p>
+          <p class="p3">Ties: <span id="ties">0</span></p>
+        </div>
+
+        <div id="achievements">
+          <h2>Achievements</h2>
+          <div id="badges"></div>
+        </div>
+      </div>
+      <div id="timer-controls">
+        <button id="start-btn" onclick="startGame()">Start Game</button>
+        <button id="pause-btn" onclick="pauseResumeTimer()">Pause Timer</button>
+        <button id="restart-btn" onclick="initializeGame()">
+          Restart Game
+        </button>
+      </div>
+      <div class="rule-container">
+        <button id="rules-btn" onclick="showRules()">Rules</button>
+      </div>
+
+      <div id="rules-modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeRulesModal()">&times;</span>
+          <h2>Rock Paper Scissors Rules</h2>
+          <p>The rules are simple:</p>
+          <ul>
+            <hr />
+            <li>
+              <p>Rock beats Scissors</p>
+              <img src="images/rock-emoji.png" alt="rock" /> beats
+              <img src="images/scissors-emoji.png" alt="scissors" />
+            </li>
+            <hr />
+            <li>
+              <p>Scissors beats Paper</p>
+              <img src="images/scissors-emoji.png" alt="rock" /> beats
+              <img src="images/paper-emoji.png" alt="scissors" />
+            </li>
+            <hr />
+            <li>
+              <p>Paper beats Rock</p>
+              <img src="images/paper-emoji.png" alt="rock" /> beats
+              <img src="images/rock-emoji.png" alt="scissors" />
+            </li>
+            <hr />
+          </ul>
+          <p>Choose your move wisely and enjoy the game!</p>
+        </div>
+      </div>
+    </div>
+    <div id="alert-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeAlertModal()">&times;</span>
+        <p id="alert-message"></p>
+      </div>
+    </div>
+
+    <script src="my2.js"></script>
+  </body>
+</html>

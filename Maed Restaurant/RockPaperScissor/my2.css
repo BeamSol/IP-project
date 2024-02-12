@@ -1,0 +1,1263 @@
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1{
+  text-align: center;
+  margin-top: 40px;
+}
+body.default {
+  background-color: #fff;
+  color: black;
+}
+body.dark {
+  background-color: black;
+  color: #fff;
+}
+body.ocean {
+ background-color: #9f9def;
+ color: #fff;
+}
+body.light {
+ background-color: #fdfa72;
+ color: black;
+}
+body.default h1,
+body.dark h1,
+body.ocean h1,
+body.light h1{
+  color: inherit; 
+  text-align: center;
+  margin-top: 20px;
+}
+body.default h2,
+body.dark h2,
+body.ocean h2,
+body.light h2,
+body.default h3 ,
+body.dark h3,
+body.ocean h3,
+body.light h3{
+  color: inherit; 
+  text-align: center;
+}
+
+body.default #difficultySelect,
+body.default #themeSelect,
+body.dark #difficultySelect,
+body.dark #themeSelect,
+body.ocean #difficultySelect,
+body.ocean #themeSelect,
+body.light #difficultySelect,
+body.light #themeSelect {
+  color: inherit;
+  text-align: center;
+}
+body.default p,
+body.dark p,
+body.ocean p,
+body.light p {
+  color: inherit;
+}
+body.dark #start-btn,
+body.dark #pause-btn,
+body.dark #restart-btn,
+body.dark #rule-btn{
+  color: white;
+}
+img{
+  height: 120px;
+}
+#game{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+  '. . D'
+  '. M S'
+  'P R C'
+  '. B L';
+  gap: 10px;
+  max-height: 100vh;
+  max-width: 1536px;
+  border: 2px solid;
+  margin: 50px;
+}
+#settings{
+  grid-area: D;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+.difficulty{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 5px;
+}
+.theme{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+#difficultySelect, #themeSelect{
+  font-size: medium;
+  cursor: pointer;
+  text-align: start;
+  background: transparent;
+ }
+.moves{
+  grid-area: M;
+  padding: 2px;  
+  border-top: 2px solid lightgray;
+}
+.moves h3{
+  text-align: center;
+  font-size: 24px;
+}
+.moves-img{ 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'R P'
+  'S S';
+  height: 20rem;
+  padding-top: 3rem;
+}
+.moves-img .rock{
+  grid-area: R;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.moves-img .paper{
+  grid-area: P;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.moves-img .scissors{
+  grid-area: S;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.moves-img img{
+  border: 2px solid;
+  border-radius: 50%;
+}
+.playersMove{
+  grid-area: P;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3px;
+  border-top: 2px solid lightgray;
+}
+.computerMove{
+  grid-area: C;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+  border-top: 2px solid lightgray;
+}
+.playersMove img,.computerMove img{
+  height: 150px;
+  margin-bottom: 2em;
+}
+#game-info{
+  grid-area: R;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#game-result{
+  font-size: 1.75em;
+}
+#score{
+  grid-area: S;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.div-p{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border-top: 2px solid lightgray;
+}
+.div-p h3{
+ padding: 5px;
+ font-size: 24px;
+}
+
+#achievements{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  border-top: 2px solid lightgray;
+  height: 100%;
+  width: 100%;
+  margin-top: 20px;
+}
+#achievements h2{
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+#achievements #badges{
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  height: 100%;
+}
+#timer-controls{
+  grid-area: B;
+  border-top: 2px solid lightgray;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  'Sg Pg'
+  'Rg Rg';
+  gap: 5px;
+  padding-top: 15px ;
+}
+#start-btn{
+  grid-area: Sg;
+  background: transparent;
+  border-radius: 20px;
+
+}
+#pause-btn{
+  grid-area: Pg;
+  background: transparent;
+  border-radius: 20px;
+
+}
+#restart-btn{
+  grid-area: Rg;
+  background: transparent;
+  border-radius: 20px;
+
+}
+.rule-container{
+  grid-area: L;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  background: transparent;
+}
+#rule-btn{
+  background: transparent;
+  width: 50%;
+  border-radius: 20px;
+
+}
+/* Style for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content h2{
+  margin-bottom: 10px;
+}
+.modal-content p{
+  margin-top: 10px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*media query*/
+@media (max-width: 1866px) {
+  #game{
+    max-width: 1536px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+    gap: 10px;
+  }
+  .playersMove img,.computerMove img,img{
+    height: 200px;
+  }
+
+}
+@media (max-width: 1536px) {
+  #game{
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+    gap: 5px;
+  }
+  h1{
+    font-size: 50px;
+    color: inherit ;
+  }
+  h2,h3{
+    text-align: center;
+    font-size: 30px;
+    color: inherit ;
+  }
+  .playersMove img,.computerMove img,img{
+    height: 100px;
+  }
+  .moves{
+    grid-area: M;
+    padding: 2px;
+  }
+  .moves-img{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'R P'
+    'S S';
+    height: 20rem;
+    padding-top: 4rem;
+    margin-top: 10px;
+    border: 2px solid lightgray;
+  }
+  .moves-img .rock{
+    grid-area: R;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .moves-img .paper{
+    grid-area: P;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .moves-img .scissors{
+    grid-area: S;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #settings{
+    grid-area: D;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    max-width: 100%;
+  }
+  .difficulty{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .theme{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+  }
+  .difficulty p{
+    font-size: 20px;
+    color: inherit ;
+  }
+  .theme p{
+    font-size: 20px;
+    color: inherit ;
+  }
+  #difficultySelect, #themeSelect{
+    font-size: medium;
+    cursor: pointer;
+    text-align: start;
+    font-size: 15px;
+   }
+   #score{
+    grid-area: S;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .div-p{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+    font-size: 20px;
+  }
+  #achievements{
+    grid-area: A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  #achievements h2{
+
+    margin-top: 2px;
+    margin-bottom: 3px;
+  }
+  #achievements #badges{
+    padding: 1em;
+  }#timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+  #game-result{
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+
+}
+@media (max-width: 1280px) {
+  #game{
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 336px 336px 336px;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+    gap: 5px;
+  }
+  img{
+    height: 110px;
+  }
+  .playersMove img,.computerMove img{
+    height: 140px;
+  }
+  h1{
+    font-size: 40px;
+  }
+  h2,h3{
+    font-size: 25px;
+    color: inherit ;
+  }
+  #timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  #game{
+    max-width: 768px;
+    display: grid;
+    grid-template-columns:250px 250px 250px;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+    gap: 5px;
+  }
+  h1{
+    font-size: 30px;
+    color: inherit ;
+  }
+  h2,h3{
+    font-size: 20px;
+    color: inherit ;
+  }
+  img{
+    height: 90px;
+  }
+  .playersMove img,.computerMove img{
+    height: 140px;
+  }
+  h1{
+    font-size: 40px;
+  }
+  h2,h3{
+    font-size: 25px;
+    color: inherit ;
+  }
+  .difficulty p{
+    font-size: 13px;
+    color: inherit ;
+  }
+  .theme p{
+    font-size: 13px;
+    color: inherit ;
+  }
+  #difficultySelect, #themeSelect{
+    font-size: medium;
+    cursor: pointer;
+    text-align: start;
+    font-size: 10px;
+   }
+   #timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+   #game-result{
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 768px) {
+  #game{
+    max-width: 640px;
+    display: grid;
+    border: 5px solid;
+    grid-template-columns:208px 208px 208px;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+    gap: 5px;
+  }
+  img{
+    height: 70px;
+  }
+  .playersMove img,.computerMove img{
+    height: 120px;
+  }
+  h1{
+    font-size: 40px;
+    color: inherit;
+  }
+  h2,h3{
+    font-size: 25px;
+    color: inherit;
+  }
+  #settings{
+    grid-area: D;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    max-width: 98%;
+  }
+  .difficulty{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .theme{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .difficulty p{
+    font-size: 20px;
+    color: inherit ;
+  }
+  .theme p{
+    font-size: 20px;
+    color: inherit;
+  }
+  #difficultySelect, #themeSelect{
+    font-size: medium;
+    cursor: pointer;
+    text-align: start;
+    font-size: 15px;
+   }
+   #achievements h2{
+    margin-top: 2px;
+    margin-bottom: 3px;
+  }
+  #timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+   #game-result{
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+}
+
+
+@media (max-width: 640px) {
+  #game{
+    max-width: 475px;
+    display: grid;
+    border: 5px solid;
+    grid-template-columns:152px 152px 152px;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+    gap: 5px;
+
+  }
+  img{
+    height: 50px;
+  }
+  .playersMove img,.computerMove img{
+    height: 70px;
+  }
+  h1{
+    font-size: 25px;
+    color: inherit;
+  }
+  h2,h3{
+    font-size: 20px;
+    color: inherit;
+  }
+  .moves-img{ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'R P'
+    'S S';
+    height: 15rem;
+    padding-top: 4rem;
+  }
+  .moves-img .rock{
+    grid-area: R;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .moves-img .paper{
+    grid-area: P;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .moves-img .scissors{
+    grid-area: S;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .difficulty p{
+    font-size: 17px;
+    color: inherit ;
+  }
+  .theme p{
+    font-size: 18px;
+    color: inherit ;
+  }
+  #game-result{
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  #timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+}
+@media (max-width: 500px) {
+  #game {
+    max-width: 407px;
+    display: grid;
+    border: 5px solid;
+    grid-template-columns: 130px 130px 130px;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+    gap: 5px;
+  }
+  img {
+    height: 45px;
+  }
+  .moves{
+    grid-area: M;
+    padding: 2px;
+  }
+  .moves-img{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .playersMove img, .computerMove img {
+    height: 60px;
+  }
+  h1,h2,h3{
+    text-align: center;
+    font-size: 15px;
+    color: inherit ;
+  }
+  #settings{
+    grid-area: D;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    max-width: 100%;
+  }
+  .difficulty{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+
+  }
+  .theme{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+  }
+  .difficulty p{
+    font-size: smaller;
+  }
+  .theme p{
+    font-size: smaller;
+  }
+  #difficultySelect, #themeSelect{
+    font-size: medium;
+    cursor: pointer;
+    text-align: start;
+    font-size: smaller;
+   }
+   #score{
+    grid-area: S;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .div-p{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+  #achievements{
+    grid-area: A;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  #achievements h2{
+    margin-top: 2px;
+    margin-bottom: 3px;
+  }
+  #achievements #badges{
+    padding: 1em;
+  }
+  .btn{
+    grid-area: B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3px;
+  }.reset-btn{
+    margin: 3px;
+    padding: 3px;
+  }
+  #timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+  #game-result{
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 475px) {
+  #game {
+    max-width: 320px;
+    grid-template-columns: 98px 100px 100px;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+  }
+  .playersMove img, .computerMove img, img {
+    height: 20px;
+  }
+  .difficulty p,.theme p{
+    color: inherit ;
+  }
+ 
+  img {
+    height: 35px;
+  }
+  .moves{
+    grid-area: M;
+    padding: 2px;
+  }
+  .moves-img{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .playersMove img, .computerMove img {
+    height: 60px;
+  }
+  h1{
+    font-size: 20px;
+    color: inherit ;
+  }
+  #achievements h2{
+    font-size: 13px;
+    color: inherit ;
+  }
+  h2,h3{
+    text-align: center;
+    font-size: 15px;
+    color: inherit ;
+  }
+  #settings{
+    grid-area: D;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    max-width: 98%;
+  }
+  .difficulty{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+  }
+  .theme{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .difficulty p{
+    font-size: 13px;
+  }
+  .theme p{
+    font-size: 13px;
+  }
+  #difficultySelect, #themeSelect{
+    font-size: medium;
+    cursor: pointer;
+    text-align: start;
+    font-size: 10px;
+    width: 100%;
+   }
+   #timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+   #game-result{
+    font-size: 15px;
+  }
+}
+@media(max-width: 320px) {
+  #game {
+    max-width: 250px;
+    grid-template-columns: 75px 80px 80px;
+    grid-template-areas:
+    '. . D'
+    '. M S'
+    'P R C'
+    '. B L';
+  }
+  .playersMove img, .computerMove img, img {
+    height: 15px;
+  }
+  .difficulty p,.theme p{
+    color: yellowgreen;
+  }
+  img {
+    height: 27px;
+  }
+  .moves{
+    grid-area: M;
+    padding: 2px;
+  }
+  .moves-img{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .playersMove img, .computerMove img {
+    height: 60px;
+  }
+  h1{
+    font-size: 18px;
+    color: inherit ;
+  }
+  #achievements h2{
+    font-size: 10px;
+    color: inherit ;
+  }
+  h2,h3{
+    text-align: center;
+    font-size: 13px;
+    color: inherit ;
+  }
+  #settings{
+    grid-area: D;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    max-width: 98%;
+  }
+  .difficulty{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+  }
+  .theme{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .difficulty p{
+    font-size: 13px;
+  }
+  .theme p{
+    font-size: 13px;
+  }
+  #difficultySelect, #themeSelect{
+    font-size: medium;
+    cursor: pointer;
+    text-align: start;
+    font-size: 8px;
+    width: 100%;
+   }
+   #timer-controls{
+    grid-area: B;
+    border-top: 2px solid lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    'Sg Pg'
+    'Rg Rg';
+    gap: 5px;
+    padding-top: 15px ;
+  }
+  #start-btn{
+    grid-area: Sg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #pause-btn{
+    grid-area: Pg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  #restart-btn{
+    grid-area: Rg;
+    background: transparent;
+    border-radius: 20px;
+  }
+  .rule-container{
+    grid-area: L;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  #rule-btn{
+    background: transparent;
+    width: 50%;
+    border-radius: 20px;
+  }
+   #game-result{
+    font-size: 13px;
+  }
+}
