@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='100' height='100' preserveAspectRatio='none'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23e1b227' font-family='Arial' font-size='8' font-weight='bold' transform='rotate(-45 50 50)'%3Emaed%3C/text%3E%3C/svg%3E");
+            background-size: 200px;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: darkgoldenrod;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu-section {
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #be9b50, #191919);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #e1b227;
+            border-radius: 10px 10px 0 0;
+        }
+        .menu-header h2 {
+            font-size: 24px;
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        .image-box {
+            width: 500px;
+            height: 120px;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .image-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+            opacity: 1; /* Fully visible */
+            transition: opacity 0.3s;
+        }
+        .menu-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu-section ul li {
+            padding: 10px 20px;
+            border-bottom: 1px solid #fff;
+            font-size: 16px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .menu-section ul li:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background-color: #e1b227;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .menu-section ul li:hover {
+            transform: translateX(10px);
+        }
+        .menu-section ul li:hover:before {
+            transform: scaleX(1);
+        }
+        .menu-section ul li:last-child {
+            border-bottom: none;
+        }
+        .menu-section hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #fff;
+        }
+        .menu-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+        .menu-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .menu-button {
+            padding: 10px 20px;
+            background-color: #e1b227;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .menu-button:hover {
+            background-color: #be9b50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-section">
+            <div class="menu-buttons">
+               <a href="./ip.html"> <button class="menu-button">Back to Home</button></a>
+                
+            </div>
+            <div class="menu-buttons">
+                <a href="./MAED.pdf"> <button class="menu-button">Download menu</button></a>
+                 
+             </div>
+            <div class="menu-header">
+                <img class="logo" src="./maedwhite.png" alt="Logo">
+                
+                
+        </div>
+        <div class="menu-section">
+            <div class="menu-header">
+                
+                <h2>Starter</h2>
+                <div class="image-box">
+                    <img src="./Starter/sanbusa.jpg" alt="Starter Image" >
+                </div>
+            </div>
+            <hr>
+            <ul>
+                <li>Sanbosa................................................100br</li>
+                <li>Toasted Whole grain bread with Ethiopian sauce Awaze...150br</li>
+                <li>fresh mead salad.......................................330br</li>
+                <li>Telba with enjira......................................250br</li>
+                <li>Suff juice.............................................100br</li>
+                <li>Aja shoreba............................................150br</li>
+            </ul>
+            <hr>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-header">
+                
+                <h2>Main Course</h2>
+                <div class="image-box">
+                    <img src="./Starter/veggi.jpg" alt="Main Course Image">
+                </div>
+            </div>
+            <hr>
+            <strong>
+                <h3>Vegan Corner</h3>
+                <ul>
+                    <li>Shiro    ............................250br</li>
+                    <li>Gomen      ...........................150br</li>
+                    <li>Tekel Gomen .........................150br</li>
+                    <li>Miser wott...........................200br</li>
+                    <li>Kik wott alecha/key..................200br</li>
+                    <li>Defen miser..........................200br</li>
+                    <li>Suf fitfit ..........................200br</li>
+                    <li>Alecha/key firfir  ..................185br</li>
+                    <li>Denche wott key/Alecha...............190br</li>
+                    <li>Duba wott............................250br</li>
+                </ul>
+                <h3>Meat Lover</h3>
+                   <div class="image-box">
+                       <img src="./Starter/dorowott.jpg" alt="Main Course Image">
+                   </div>
+                <ul>
+                    <li>sega wott       ...................300br</li>
+                    <li>Alecha sega wott...................300br</li>
+                    <li>Kitfo           ...................850br</li>
+                    <li>Gas light 1kg    ...................2500br</li>
+                    <li>Menchet alecha/key.................450br</li>
+                    <li>Kekel sega        .................400br</li>
+                    <li>Doro Wott half/full................1700/3500br</li>
+                    <li>Doro Aresto half/full...............1500/3000br</li>
+                    <li>Chekena Tibs      .................500br</li>
+                    <li>Yebeg Tibs        .................5500br</li>
+                    <li>Derq Tibs  1kg    .................2500br</li>
+                </ul>
+            </strong>
+            <hr>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-header">
+                
+                <h2>Family Corner</h2>
+                <div class="image-box">
+                    <img src="./Starter/fam.jpg" alt="Family Corner Image">
+                </div>
+            </div>
+            <hr>
+            <ul>
+                <li>Beyeaynetu            ................500br</li>
+                <li>Agelegel mulu/gemash  ................800/1600br</li>
+                <li>Doro wott mulu/gemash ................1700/3500</li>
+                <li>Doro aresto mulu/gemash................1500/300</li>
+                <li>Beg aresto mulu/gemash................3000/5500br</li>
+            </ul>
+            <hr>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-header">
+                
+                <h2>Raw Maed</h2>
+                <div class="image-box">
+                    <img src="./Starter/sega.jpg" alt="Raw Maed Image">
+                </div>
+            </div>
+            <hr>
+            <p><strong>
+                <ul>
+                    <li>Tere sega 1kg.............2500br</li>
+                    <li>Kermila...................1500br</li>
+                    <li>Gored Gore................1000br</li>
+                    <li>Kitfo.....................850br</li>
+                    <li>Katelo.....................900br</li>
+                </ul>
+            </strong></p>
+            <hr>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-header">
+                
+                <h2>Drinks</h2>
+                <div class="image-box">
+                    <img src="./Starter/tej.jpg" alt="Drinks Image">
+                </div>
+            </div>
+            <hr>
+            <p><strong>
+                <ul>
+                    <li>Water............................25br</li>
+                    <li>Sprinkled Water..................35br</li>
+                    <li>Soft drinks......................35br</li>
+                    <li>Berze............................65br</li>
+                    <li>Tej..............................295br</li>  
+                    <li>Tela.............................240br</li>
+                    <li>Wine glass/bottel................300/830br</li>
+                    <li>Beer.............................45br</li>
+                    <li>Cocktail.........................250br</li>
+                    <li>Whisky glass/bottel..............1000/5500br</li>
+                </ul>
+            </strong></p>
+            <hr>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-header">
+               
+                <h2>Dessert</h2>
+                <div class="image-box">
+                    <img src="./Starter/hambasha.jpg" alt="Dessert Image">
+                </div>
+            </div>
+            <hr>
+            <p><strong>
+                <ul>
+                    <li>Hambasha...........................250br</li>
+                    <li>Ethiopian fruit salad..............125br</li>
+                    <li>Honey ice-cream....................187br</li>
+                    <li>Baklava............................55br</li>
+                    <li>Mandazi(East African Doughnut).....45br</li>
+                </ul>
+            </strong></p>
+            <hr>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-header">
+               
+                <h2>Hot Drinks</h2>
+                <div class="image-box">
+                    <img src="./Starter/coffee.jpg" alt="Hot Drinks Image">
+                </div>
+            </div>
+            <hr>
+            <p><strong>
+                <ul>
+                    <li>Jebena Buna................20br<br></li>
+                    <li>Tea........................20br <br></li>
+                    <li>Macchiato..................30br<br></li>
+                    <li>Milk.......................25br<br></li>
+                    <li>Espresso...................25br<br></li>
+                </ul>
+            </strong></p>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>
